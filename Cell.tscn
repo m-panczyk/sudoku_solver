@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyji0v0wjrt4m"]
+
+[ext_resource type="Script" path="res://Cell.gd" id="1"]
+[ext_resource type="Theme" uid="uid://dv28awk2jpwui" path="res://Cell_light.tres" id="1_auq1a"]
+
+[sub_resource type="ImageTexture" id="1"]
+
+[node name="Node2D" type="SpinBox"]
+custom_minimum_size = Vector2(70, 70)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -35.0
+offset_right = 35.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_auq1a")
+theme_override_icons/updown = SubResource("1")
+max_value = 9.0
+alignment = 1
+script = ExtResource("1")
+
+[connection signal="value_changed" from="." to="." method="_on_Node2D_value_changed"]
