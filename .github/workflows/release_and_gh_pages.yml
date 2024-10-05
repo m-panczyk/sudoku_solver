@@ -36,7 +36,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           generateReleaseNotes: true
           tag: ${{ github.ref_name }}
-          artifacts: ${{ steps.export.outputs.build_directory }}/*
+          artifacts: ${{ steps.export.outputs.build_directory }}/LinuxX11/*,${{ steps.export.outputs.build_directory }}/Windows Desktop/*
+          allowUpdates: true
       - name: Setup pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
