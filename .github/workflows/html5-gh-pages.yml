@@ -23,6 +23,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3.3.0
       - name: Export godot game as html5
+        id: export
         uses: firebelley/godot-export@v5.2.1
         with:
             godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/4.3/Godot_v4.3-stable_linux.x86_64.zip
@@ -30,6 +31,13 @@ jobs:
             relative_project_path: ./
             create_release: false
             use_preset_export_path: true
+      - name: create release
+        uses: ncipollo/release-action@v1.12.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          generateReleaseNotes: true
+          tag: ${{ github.ref_name }}
+          artifacts: ${{ steps.export.outputs.archive_directory }}/*
       - name: Setup pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
