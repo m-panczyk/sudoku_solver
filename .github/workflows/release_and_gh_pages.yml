@@ -29,7 +29,6 @@ jobs:
             godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/4.3/Godot_v4.3-stable_linux.x86_64.zip
             godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.3/Godot_v4.3-stable_export_templates.tpz
             relative_project_path: ./
-            create_release: false
             use_preset_export_path: true
       - name: create release
         uses: ncipollo/release-action@v1.12.0
@@ -37,7 +36,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           generateReleaseNotes: true
           tag: ${{ github.ref_name }}
-          artifacts: ${{ steps.export.outputs.archive_directory }}/*
+          artifacts: ${{ steps.export.outputs.build_directory }}/*
       - name: Setup pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
