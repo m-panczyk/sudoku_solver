@@ -45,6 +45,7 @@ jobs:
           allowUpdates: true
           commit: true
           draft: true
+          name: "draft"
       - name: Setup pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
