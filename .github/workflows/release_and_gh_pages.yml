@@ -44,7 +44,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           generateReleaseNotes: true
-          artifacts: ${{ steps.export.outputs.build_directory }}/LinuxX11/*,${{ steps.export.outputs.build_directory }}/Windows Desktop/*
+          artifacts: ${{ steps.export.outputs.build_directory }}/LinuxX11/*,${{ steps.export.outputs.build_directory }}/Windows Desktop/*, ${{ steps.export.outputs.build_directory }}/Android/*
           allowUpdates: true
           draft: true
           tag: "draft"
